@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>SummaryTask4</display-name>
+  <welcome-file-list>
+    <welcome-file>startpage</welcome-file>
+  </welcome-file-list>
+<jsp-config>
+		<taglib>
+		<taglib-uri>curentDateTag</taglib-uri>
+		<taglib-location>/WEB-INF/curentDateTag.tld</taglib-location>
+		</taglib>
+</jsp-config>
+  <servlet>
+    <servlet-name>Controller</servlet-name>
+    <servlet-class>ua.nure.korkh.SummaryTask4.web.Controller</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Controller</servlet-name>
+    <url-pattern>/controller</url-pattern>
+  </servlet-mapping>
+    <!--============================================================ 
+	JDBC DataSourse
+	============================================================= -->
+  <resource-ref>
+    <description>DB for airline</description>
+    <res-ref-name>jdbc/airline</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+    <!--============================================================ 
+	Filters
+	============================================================= -->
+  <filter>
+    <filter-name>EncodingFilter</filter-name>
+    <filter-class>ua.nure.korkh.SummaryTask4.web.filter.EncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>EncodingFilter</filter-name>
+    <url-pattern>/WEB-INF/jsp/*</url-pattern>
+    <servlet-name>Controller</servlet-name>
+  </filter-mapping>
+  <filter>
+    <filter-name>CommandAccessFilter</filter-name>
+    <filter-class>ua.nure.korkh.SummaryTask4.web.filter.CommandAccessFilter</filter-class>
+    <init-param>
+      <param-name>administrator</param-name>
+      <param-value>admincabinet deleteuser updateuser controller applicationlist flightlist claimlistadmin adduser saveuser addflight saveflight updateflight saveupdateflight deleteflights changestatusclaim watchbrigadeadmin planelist addplane savenewplane updateplane saveupdateplane deleteplane</param-value>
+    </init-param>
+    <init-param>
+      <param-name>dispatcher</param-name>
+      <param-value>dispatchercabinet watchbrigade changestatusflight saveflightbrigade changestatusflight addclaim savenewclaim mylistclaims listairport changestatusairport deletebrigade</param-value>
+    </init-param>
+     <init-param>
+      <param-name>brigade</param-name>
+      <param-value>brigadecabinet</param-value>
+    </init-param>
+    <init-param>
+      <param-name>common</param-name>
+      <param-value>logout noCommand  startpage </param-value>
+    </init-param>
+    <init-param>
+      <param-name>out-of-control</param-name>
+      <param-value>login editLanguage activeaccount</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>CommandAccessFilter</filter-name>
+    <servlet-name>Controller</servlet-name>
+  </filter-mapping>
+  <!--============================================================ 
+	ContextParametrs
+	Resource bundle name;
+	Set default locale
+	All locales 
+	============================================================= -->
+	<context-param>
+		<param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+		<param-value>resources</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.servlet.jsp.jstl.fmt.locale</param-name>
+		<param-value>en</param-value>
+	</context-param>
+	<context-param>
+		<param-name>locales</param-name>
+		<param-value>en ru</param-value>
+	</context-param>	
+    <!--============================================================ 
+	ERROR-PAGE
+	============================================================= -->
+<error-page>
+	<error-code>404</error-code>
+	<location>/404.jsp</location>
+</error-page>
+<error-page>
+	<error-code>500</error-code>
+	<location>/500.jsp</location>
+</error-page>
+    <!--============================================================ 
+	Listener
+	============================================================= -->
+  <listener>
+    <listener-class>ua.nure.korkh.SummaryTask4.web.listener.ContextListener</listener-class>
+  </listener>
+</web-app>

@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/jsp/admin/adduser.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/admin/admincabinet.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/admin/updateuser.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/dispatcher/dispatchercabinet.jsp=UTF-8

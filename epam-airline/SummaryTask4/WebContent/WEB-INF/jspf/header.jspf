@@ -1,0 +1,138 @@
+<%--=========================================================================== 
+Header (top area). 
+===========================================================================--%> 
+
+
+<%@ include file="/WEB-INF/jspf/directive/page.jspf" %>
+<%@ include file="/WEB-INF/jspf/directive/taglib.jspf" %>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<tr >
+<td id="header" style='background: url("images/aircraft2.jpg");' height="200">
+
+<c:if test="${not empty user}">
+<%--=========================================================================== 
+This is the user menu. 
+===========================================================================--%> 
+
+<div id="leftHeader">
+	<c:choose>
+<%--=========================================================================== 
+This way we define the ADMINISTRATOR MENU. 
+===========================================================================--%> 
+		<c:when test="${userRole.name == 'administrator' }">
+			<a href="controller?command=admincabinet"><fmt:message key="header.jspf.mycabinet"/></a> &nbsp;
+			<a href="controller?command=flightlist"><fmt:message key="header.jspf.flightlist"/></a> &nbsp;
+			<a href="controller?command=claimlistadmin"><fmt:message key="header.jspf.myclaimlist"/></a> &nbsp;
+			<a href="controller?command=planelist"><fmt:message key="header.jspf.planelist"/></a> &nbsp;
+		</c:when>
+
+		
+<%--=========================================================================== 
+This way we define the dispatcher 
+===========================================================================--%> 
+		<c:when test="${userRole.name == 'dispatcher'}">
+			<a href="controller?command=dispatchercabinet"><fmt:message key="header.jspf.mycabinet"/></a> &nbsp;
+			<a href="controller?command=mylistclaims"><fmt:message key="header.jspf.myclaimlist"/></a> &nbsp;
+			<a href="controller?command=listairport"><fmt:message key="header.jspf.airport"/></a> &nbsp;
+		</c:when>
+	</c:choose>
+	
+<%--=========================================================================== 
+This way we define the settings anchor.
+===========================================================================--%> 
+	
+
+</div>
+
+<%--=========================================================================== 
+This way we define the menu located at the right of header. 
+===========================================================================--%> 
+
+<div id="rightHeader" >
+
+<%--=========================================================================== 
+Type user name if the user object is presented in the current session.  
+===========================================================================--%> 
+
+	<c:out value="${user.name} ${user.suname}"/>
+	
+<%--=========================================================================== 
+Type user role name if the user object is presented in the current session.  
+===========================================================================--%> 
+	<c:if test="${not empty userRole}">
+		<c:out value="(${userRole.name})"/>
+	</c:if>
+
+<%--=========================================================================== 
+Type link to logout  
+===========================================================================--%> 
+	
+	
+	<form id="login_form" action="controller" method="post">
+	
+	<input type="hidden" name="command" value="logout"/>
+		<input type="submit" value="<fmt:message key="header.jspf.logout"/>">		
+	</form>	
+					<form action="controller" method="GET">
+						<input type="hidden" name="command" value="editLanguage" /> 
+						<input type="hidden" name = "currentCommand" value="${param.command}" />
+						<input type = "hidden" id = "language" value ="${language}">
+						
+						<select	id="selectLanguage" name="language" onchange="this.form.submit()">
+							<option ><fmt:message key="header.jspf.chooseLanguge" /></option>
+							<option value="ru"><fmt:message	key="header.jspf.ru_language" /></option>
+							<option value="en"><fmt:message	key="header.jspf.en_language" /></option>
+						</select>
+					</form>
+
+</div>
+</c:if>
+
+	<c:if test="${empty user and title ne 'Login'}">
+	
+	
+			<div id="leftHeader">
+				<a href="startpage"><fmt:message key="header.jspf.startpage"/></a> &nbsp;
+			</div>
+		
+			<div id="rightHeader" >
+			<form id="login_form" action="controller" method="post">
+
+<%--=========================================================================== 
+Hidden field. In the query it will act as command=login.
+The purpose of this to define the command name, which have to be executed 
+after you submit current form. 
+===========================================================================--%> 
+						
+						<input type="hidden" name="command" value="login"/>
+	
+						<fieldset >
+							<legend><fmt:message	key="header.jspf.login" /></legend>
+							<input name="login"/><br/>
+						</fieldset><br/>
+						<fieldset>
+							<legend><fmt:message	key="header.jspf.password" /></legend>
+							<input type="password" name="password"/>
+						</fieldset><br/>
+						 <!-- reCAPTCHA -->
+      					<div class="g-recaptcha" data-sitekey="6LeBwxIUAAAAAOpP25fsCmCFjnLWcvy0jJObcBek"></div>
+						<input type="submit" value="<fmt:message	key="header.jspf.login" />">								
+					</form>
+					
+					<form action="controller" method="GET">
+						<input type="hidden" name="command" value="editLanguage" /> 
+						<input type="hidden" name = "currentCommand" value="${param.command}" />
+						<input type = "hidden" id = "language" value ="${language}">
+						<select	id="selectLanguage" name="language" onchange="this.form.submit()">
+							<option ><fmt:message key="header.jspf.chooseLanguge" /></option>
+							<option value="ru"><fmt:message	key="header.jspf.ru_language" /></option>
+							<option value="en"><fmt:message	key="header.jspf.en_language" /></option>
+						</select>
+					</form>
+			</div>
+		</c:if>
+
+	</td>
+</tr>
+

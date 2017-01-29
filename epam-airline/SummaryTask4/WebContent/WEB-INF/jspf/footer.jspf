@@ -1,0 +1,11 @@
+<%--=========================================================================== 
+Footer (bottom area). 
+===========================================================================--%> 
+
+<table id="footer">
+<tr>
+	
+	<td id="footer">&copy;Airline (SummaryTask4, EPAM-KNURE Java Training), 2016-2017<br>
+	<ct:today format="yyyy-MM-dd hh:mm"/></td>
+</tr>
+</table>

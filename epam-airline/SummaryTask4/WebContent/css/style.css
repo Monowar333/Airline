@@ -1,0 +1,274 @@
+* {margin: 0;padding: 0;outline: none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+*:after, *:before { -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section {  display: block;}
+html {font-size: 100%;height: auto !important;height: 100%;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;}
+.clear {display: block;	}
+.clear::after {clear: both;content: ".";display: block;height: 1px;visibility: hidden;}
+	
+/*GENERIC STYLES*/
+body { background: #EEDD82;color: #222;-webkit-font-smoothing: antialiased;font-family: sans-serif, 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 1.05em;font-weight: 400;height: auto !important;height: 100%;line-height: 1.6rem;min-height: 100%;}
+/*NAV*/
+
+#header, #footer, .content {
+	border: 0px solid;	
+	font-family: sans-serif;
+}
+
+body {
+	margin: 0;
+	font-family: sans-serif;
+}
+/***************************************************************
+Style of the main table
+***************************************************************/
+#main-container {
+	width: 100%;
+	height: 100%;
+}
+/***************************************************************
+Header style (TD tag in the first top row)
+***************************************************************/
+#header {
+	font-size: 100%; /* Размер шрифта в процентах */ 
+	background-image: url(images/aircraft.jpg);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+	width: 100%;
+	border-top: none;
+	background:#7FFF00 ;
+	padding: 0px;
+}
+
+
+
+/***************************************************************
+Style for the left located head menu (DIV tag at left)
+***************************************************************/
+#leftHeader {
+	text-transform: uppercase;
+	vertical-align: center;
+	background: #B8860B;
+	float: left;
+	margin-left: 10px;
+	padding: 2px;
+	display: table-cell;
+	}
+	
+	#leftHeader a{
+	vertical-align: center;
+	font-family: sans-serif;
+	font-size: 100%;
+	}	
+
+/***************************************************************
+Style for the right located head menu (DIV tag at right)
+***************************************************************/
+#rightHeader {
+	font-family: sans-serif;
+	vertical-align: top;
+	background: #B8860B;
+	float: right;
+	text-align: right;
+	margin-right: 10px;
+	padding: 2px;
+}
+#rightHeader a{
+	font-family: sans-serif;
+
+}
+/***************************************************************
+Content styles (TD tag in the main middle row)
+***************************************************************/
+.content {
+	font-family: sans-serif;
+	height: 100%;
+	background: #EEDD82;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	text-align: left;
+	vertical-align: top;
+}
+
+
+th, td,tr {
+    text-align: center;
+    border: 2px solid #69c;}
+
+
+/***************************************************************
+user table
+***************************************************************/
+#user {
+	font-family: sans-serif;
+	border: 0px ;
+	 margin: left;
+	
+}
+
+#user thead {
+	font-weight: 600;
+	font-family: sans-serif;
+	border: 0px ;
+	text-align: center;
+}
+
+#user td:first-child {
+	font-weight: 600;
+	font-family: sans-serif;
+	border: 0px ;
+	text-align: left;
+}
+
+/***************************************************************
+userlist table
+***************************************************************/
+#userlist {
+	font-family: sans-serif;
+}
+
+#userlist thead > tr > td{
+	font-weight: 600;
+}
+/***************************************************************
+flightlist table
+***************************************************************/
+#flightlist {
+	font-family: sans-serif;
+}
+
+#flightlist thead > tr > td{
+	font-weight: 600;
+}
+/***************************************************************
+planelist table
+***************************************************************/
+#planelist {
+	font-family: sans-serif;
+	margin: auto;
+}
+
+#planelist thead > tr > td{
+	font-weight: 600;
+}
+/***************************************************************
+addupdate table
+***************************************************************/
+#addupdate {
+	font-family: sans-serif;
+	margin: auto;
+}
+
+#addupdate thead > tr > td{
+	font-weight: 600;
+}
+
+#addupdate tr,td{
+	font-weight: normal;
+}
+
+#addupdate thead:tr{
+	font-weight: 600;
+}
+
+/***************************************************************
+Footer style (TD tag in the last bottom row)
+***************************************************************/
+#footer {
+	margin: auto;
+	text-align: center;
+	background: #EEDD82;
+	
+}
+
+/***************************************************************
+Style for the ERROR message
+***************************************************************/
+.error {
+	font-size: large;
+	color: rgb(204, 0, 0);
+}
+
+.contenterror{
+	margin: auto;
+}
+
+
+
+
+
+
+select {
+	  background: -webkit-gradient(linear, 0 0, 0 100%, from(#00BBD6), to(#EBFFFF));
+    color:#1C1C1C;
+
+
+}
+
+option {
+	  background: -webkit-gradient(linear, 0 0, 0 100%, from(#00BBD6), to(#EBFFFF));
+    color:#1C1C1C;
+
+
+}
+
+h3 {
+	font-family: 'Adamina', serif;
+	font-size:24px; 
+	line-height:1.208em; 
+	font-weight:400;
+	margin-bottom:8px;
+	color:#000;
+}
+h4 {
+	font-size:34px;
+	line-height:1.205em;
+	margin-bottom:3px;
+}
+	h4 strong {display:inline-block; line-height:1.2em; color:#ca4b00;}
+	h4 em {display:inline-block; line-height:1.2em; font-style:normal; color:#000;}
+
+h6 {color:#4c4c4c;}
+
+.border-bot {
+	width:100%; 
+	padding-bottom:20px; 
+	background:url(../images/pic-1.gif) 0 bottom repeat-x;
+}
+
+
+
+dl span {float:left; width:79px;}
+@media (min-width: 990px) {
+  header > nav > ul > li > a {
+    max-width: 500px;
+    font-size: 1.7rem;
+	line-height: 2rem;
+  }
+
+}
+
+table {
+border: 1px solid #69c;
+border-collapse: separate;
+empty-cells: hide;
+/*margin: auto;*/
+}
+
+
+
+
+input {
+     background: -moz-linear-gradient(#00BBD6, #EBFFFF);
+                                        background: -webkit-gradient(linear, 0 0, 0 100%, from(#00BBD6), to(#EBFFFF));
+                                        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
+                                        padding: 3px 7px;
+                                        color: #333;
+                                        -moz-border-radius: 5px;
+                                        -webkit-border-radius: 5px;
+                                        border-radius: 5px;
+                                        border: 1px solid #666;
+                                        max-width: 260px;
+                                        margin: auto;
+}
